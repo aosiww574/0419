@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  color: #fff;
+  color: gray;
+}
+.all {
+  max-width: 750px;
+  position: relative;
+  margin: auto;
+}
+.all > img {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.top {
+  max-width: 750px;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.top img {
+  width: 100%;
+  vertical-align: bottom;
+}
+.bottom {
+  max-width: 750px;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.bottom img {
+  width: 100%;
+}
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background-image: url(../image/BG1_middle.png);
+}
+.container .registered {
+  width: 80%;
+  margin: auto;
+}
+.container .registered .input-group {
+  width: 100%;
+  padding: 3px;
+}
+.container .registered .input-group label {
+  width: 100%;
+  line-height: 38px;
+}
+.container .registered .input-group .tip {
+  font-size: 14px;
+}
+.container .registered input:not([type="checkbox"]) {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  margin: 0 auto;
+  padding: 3px 8px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.container .registered [type="checkbox"] {
+  width: auto;
+  background-color: #aaa;
+}
+.container .registered [type="submit"] {
+  padding-left: 0px !important;
+}
+.container .registered a {
+  color: #aaa;
+}
+.container .registered #sendMessage,
+.container .registered .signup {
+  background-color: #b89269;
+  color: #fff;
+  line-height: 35px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin: 5px 0;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.3);
+}
+.container .registered #sendMessage:hover,
+.container .registered .signup:hover {
+  background-color: #d2ad87;
+}
+.container .registered .relative {
+  position: relative;
+}
+.container .registered .relative #captcha-img {
+  position: absolute;
+  right: 0;
+}
+.container .registered .disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.container .registered .afterSendMessage {
+  display: inline-block;
+  color: red;
+}
+.signin {
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+}
+.signin p {
+  float: left;
+}
+.signin p a {
+  text-decoration: none;
+  color: #aaa;
+}
+.signin a {
+  float: right;
+  text-decoration: none;
+  color: #000;
+}
+.signin:after,
+.signin:before {
+  clear: both;
+  display: table;
+  content: "";
+}
+.connection {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+}
+.connection a {
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+  color: black;
+}

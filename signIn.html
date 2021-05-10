@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/signIn.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./js/jquery-3.6.0.slim.min.js"></script>
+</head>
+
+<body>
+    <div class="top"><img src="./image/BG1_top.png" alt="上方圖片"></div>
+    <div class="all">
+        <!-- <img src="./image/JAN21-05_1564x3128-3-01.jpg" alt="圖片"> -->
+        <!-- <img src="./image/BG1.jpg" alt="圖片"> -->
+
+        <div class="container">
+            <!-- <img src="./image/BG1_middle.png" alt="" class="mid"> -->
+            <!-- <div class="logo">
+                <img src="https://fakeimg.pl/150x100/">
+            </div> -->
+
+            <!-- <div class="partner">
+            <img src="https://fakeimg.pl/50/">
+            <img src="https://fakeimg.pl/50/">
+            <img src="https://fakeimg.pl/50/">
+            <img src="https://fakeimg.pl/50/">
+            <img src="https://fakeimg.pl/50/">
+        </div> -->
+
+            <div class="registered">
+                <!-- action:要傳去的網址 -->
+                <!-- <form action="/action_page.php" onsubmit="return validateForm();"> -->
+                <form onsubmit="return validateForm();" id="form">
+                    <div class="input-group">
+                        <label for="userName">Player ID</label>
+                        <input type="text" id="userName" placeholder="用戶名" minlength="5" maxlength="9" name="userName"
+                            autocomplete="username">
+                        <p class="tip"></p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" minlength="8" maxlength="20"
+                            placeholder="密碼">
+                        <p class="tip"></p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Confirm Password</label>
+                        <input type="password" id="re-password" name="password" minlength="8" maxlength="20"
+                            placeholder="確認密碼">
+                        <p class="tip"></p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="phone">Contact Number(手機號碼)</label>
+                        <!-- 泰國手機是不含0是9碼，還有國際號碼66 -->
+                        <input type="tel" id="phone" name="phone" maxlength="9" placeholder="手機">
+                        <p class="tip"></p>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="Verification">SMS verification code(手機驗證碼)</label>
+                        <!-- <input type="text" id="Verification" placeholder="點擊按鈕進行驗證"> -->
+                        <input type="text" id="Verification" name="Verification" maxlength="9" placeholder="點擊按鈕進行驗證">
+                        <p class="tip"></p>
+                        <button id="sendMessage" type="button" onclick="sendAPI()">Send text message</button>
+                        <p class="afterSendMessage">180sec</p>
+                    </div>
+
+
+
+                    <div class="input-group relative">
+                        <label for="captcha">Captcha</label>
+                        <!-- 驗證碼 -->
+                        <img src="data:image/jpg;base64," alt="驗證圖" id="captcha-img">
+                        <input type="text" id="captcha" name="captcha" required>
+                    </div>
+
+                    <div class="agree">
+                        <input type="checkbox" id="agree" name="agree">
+                        <label for="agree">我已閱讀並同意相關條款和隱私政策</label>
+                        <!-- <input type="checkbox">我已閱讀並同意<a href="#">相關條款和隱私政策</a>
+                    <input type="submit" value="註冊"> -->
+                    </div>
+
+                    <button class="signup">註冊</button>
+                    <!-- <img src="./2x/sharp_person_black_24dp.png" class="userImg" alt="userImg"> -->
+                    <!-- <img src="./1x/sharp_person_black_24dp.png" class="userImg" alt="userImg"> -->
+                </form>
+            </div>
+
+            <!-- <div class="signin">
+            <p>已有帳號?<a href="#">請登入</a></p>
+            <a href="#">先去逛逛</a>
+        </div>
+        <div class="connection">
+            <a href="#">聯繫客服</a>
+        </div> -->
+
+            <!-- <div class="input-group">
+                <label for="line">LINE ID</label> -->
+            <!-- line 帳號的規則 -->
+            <!-- <input type="text" id="line" name="line" placeholder="手機" required>
+            </div> -->
+
+        </div>
+    </div>
+
+    <div class="bottom">
+        <img src="./image/BG1_down.png" alt="下方圖片">
+    </div>
+
+    <script src="./js/signIn.js"></script>
+</body>
+
+</html>
