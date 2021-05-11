@@ -1,3 +1,12 @@
+// import HmacSHA1 from 'crypto-js/hmac-sha1';
+// import HmacSHA1 from '../node_modules/crypto-js/hmac-sha1';
+// import HmacSHA1 from '../crypto-js/hmac-sha1';
+// import sha256 from 'crypto-js/sha256';
+// import hmacSHA512 from 'crypto-js/hmac-sha512';
+// import Base64 from 'crypto-js/enc-base64';
+
+
+
 const tip = document.querySelectorAll(".tip");
 tip[0].innerText = 'Please enter player id';
 tip[1].innerText = 'Password must be 8~20 alphanumeric';
@@ -92,7 +101,7 @@ function checkPhone() {
         // 被註冊過的
         // var mobileData = { mobile: "66 982325484" };
         // 正式用的
-        var mobileData = { mobile: userPhone.value };
+        var mobileData = { mobile: '66' + userPhone.value };
         var JMobileData = JSON.stringify(mobileData);
         xhrMobile.send(JMobileData)
         xhrMobile.onload = function () {
@@ -158,7 +167,7 @@ function getCaptchaImg() {
         type: 'GET',
         url: 'https://api.yabobkk.com/yabo-ecp/api/v1/captchas/random',
         success: function (data) {
-            console.log(data)
+            // console.log(data)
             captchaUuid = data.uuid;
             captchaImg.src = data.image;
         },
@@ -280,44 +289,65 @@ function time10() {
     }
 }
 
+// 手機驗證碼
+var verification = document.querySelector('#Verification')
 // 傳送form表單
 // 還沒做完
-window.addEventListener("load", function () {
-    function sendData() {
-        var XHR = new XMLHttpRequest();
+// window.addEventListener("load", function () {
+//     function sendData() {
+//         var XHR = new XMLHttpRequest();
 
-        // 我们把这个 FormData 和表单元素绑定在一起。
-        var FD = new FormData(form);
+//         // 我们把这个 FormData 和表单元素绑定在一起。
+//         var FD = new FormData(form);
 
-        // 我们定义了数据成功发送时会发生的事。
-        XHR.addEventListener("load", function (event) {
-            alert(event.target.responseText);
-        });
+//         // 我们定义了数据成功发送时会发生的事。
+//         XHR.addEventListener("load", function (event) {
+//             alert(event.target.responseText);
+//         });
 
-        // 我们定义了失败的情形下会发生的事
-        XHR.addEventListener("error", function (event) {
-            alert('哎呀！出了一些问题。');
-        });
+//         // 我们定义了失败的情形下会发生的事
+//         XHR.addEventListener("error", function (event) {
+//             alert('哎呀！出了一些问题。');
+//         });
 
-        // 我们设置了我们的请求
-        // XHR.open("POST", "https://example.com/cors.php");
-        XHR.open('POST', 'https://api.yabobkk.com/yabo-ecp/api/v1/register', true)
-        XHR.setRequestHeader('Content-type', 'multipart/form-data')
-        // 发送的数据是由用户在表单中提供的
-        XHR.send(FD);
-        console.log(FD);
-    }
+//         // 我们设置了我们的请求
+//         XHR.open('POST', 'https://api.yabobkk.com/yabo-ecp/api/v1/register', true)
+//         XHR.setRequestHeader('Content-type', 'multipart/form-data')
 
-    // 我们需要获取表单元素
-    var form = document.getElementById("form");
+//         // 
+//         var xxx = '???'
+//         var hash = passwordHash(userName.value, userPassword.value)
+//         var pin = "123456"
+//         var pinhash = passwordHash(userName.value, pin)
+//         var mobileData = { mobile: "66 " + userPhone.value };
+//         formData.append('verificationcode', verification.value)
+//         formData.append('agentid', xxx)
+//         formData.append('ulagentaccount', xxx)
+//         formData.append('playerid', xxx)
+//         formData.append('password', hash)
+//         formData.append('currency', "VND2")
+//         formData.append('firstname', userName.value)
+//         formData.append('pin', pinhash)
+//         formData.append('mobile', mobileData)
 
-    // ...然后接管表单的提交事件
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
 
-        sendData();
-    });
-});
+
+
+//         // 发送的数据是由用户在表单中提供的
+//         XHR.send(FD);
+//         console.log(FD);
+//     }
+
+//     // 我们需要获取表单元素
+//     var form = document.getElementById("form");
+
+//     // ...然后接管表单的提交事件
+//     form.addEventListener("submit", function (event) {
+//         event.preventDefault();
+
+//         sendData();
+//     });
+// });
 // {"code":0,"msg":"MissingField :playerid of type : String","replace":null}
 
 
@@ -330,3 +360,84 @@ window.addEventListener("load", function () {
 
 //     }
 // }
+
+// var hash = CryptoJS.SHA1("Message");
+// var hash = CryptoJS.HmacSHA1("Message", "Secret Passphrase");
+// HmacSHA1(password, playerid).toString();
+function passwordHash(playerid, password) {
+    // return CryptoJS.HmacSHA1(playerId, password, playerId || 'lhGaeLmCJg').toString();
+    return CryptoJS.HmacSHA1(password, playerid).toString();
+    // return CryptoJS.HmacSHA1(password, playerid);
+}
+userName.value = "player1"
+// userName.value = "player1"
+// userPassword.value = "Zxcvb1234"
+userPassword.value = "123456"
+var hash = passwordHash(userName.value, userPassword.value)
+console.log(hash)
+
+
+function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // 我们把这个 FormData 和表单元素绑定在一起。
+    var fd = new FormData();
+
+    // 我们定义了数据成功发送时会发生的事。
+    XHR.addEventListener("load", function (event) {
+        alert(event.target.responseText);
+    });
+
+    // 我们定义了失败的情形下会发生的事
+    XHR.addEventListener("error", function (event) {
+        alert('哎呀！出了一些问题。');
+    });
+
+    // 我们设置了我们的请求
+    XHR.open('POST', 'https://api.yabobkk.com/yabo-ecp/api/v1/register', true)
+    XHR.setRequestHeader('Content-type', 'multipart/form-data')
+
+    // 
+    var xxx = '???'
+    var agentid = ''
+    var hash = passwordHash(userName.value, userPassword.value)
+    var pin = "123456"
+    var zaloID = "123456"
+    var portalid = "EC_MOBILE "
+    var pinhash = passwordHash(userName.value, pin)
+    var mobileData = { mobile: "66 " + userPhone.value };
+    fd.append('verificationcode', verification.value)
+    fd.append('agentid', agentid)
+    fd.append('ulagentaccount', xxx)
+    fd.append('playerid', xxx)
+    fd.append('password', hash)
+    fd.append('currency', "VND2")
+    fd.append('firstname', userName.value)
+    fd.append('pin', pinhash)
+    fd.append('mobile', mobileData)
+    fd.append('im1', zaloID)
+    fd.append('portalid', portalid)
+    fd.append('captcha', userCaptcha.value)
+    fd.append('captchauuid', captchaUuid)
+    fd.append('regfingerprint', Fingerprint)
+    fd.append('language', "5")
+
+
+
+
+    // 发送的数据是由用户在表单中提供的
+    XHR.send(fd);
+}
+
+// 我们需要获取表单元素
+var form = document.getElementById("form");
+
+// ...然后接管表单的提交事件
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+});
+
+// sendData();
+
