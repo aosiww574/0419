@@ -369,10 +369,14 @@ function passwordHash(playerid, password) {
     return CryptoJS.HmacSHA1(password, playerid).toString();
     // return CryptoJS.HmacSHA1(password, playerid);
 }
+
+
 userName.value = "player1"
-// userName.value = "player1"
-// userPassword.value = "Zxcvb1234"
 userPassword.value = "123456"
+userRePassword.value = "123456";
+userPhone.value = "888888888"
+userCaptcha.value = "1234"
+verification.value = "000111"
 var hash = passwordHash(userName.value, userPassword.value)
 console.log(hash)
 
@@ -402,20 +406,20 @@ function sendData() {
     var agentid = ''
     var hash = passwordHash(userName.value, userPassword.value)
     var pin = "123456"
-    var zaloID = "123456"
+    // var zaloID = "123456"
     var portalid = "EC_MOBILE "
     var pinhash = passwordHash(userName.value, pin)
     var mobileData = { mobile: "66 " + userPhone.value };
     fd.append('verificationcode', verification.value)
     fd.append('agentid', agentid)
-    fd.append('ulagentaccount', xxx)
-    fd.append('playerid', xxx)
+    fd.append('ulagentaccount', agentid)
+    fd.append('playerid', userName.value)
     fd.append('password', hash)
     fd.append('currency', "VND2")
     fd.append('firstname', userName.value)
     fd.append('pin', pinhash)
     fd.append('mobile', mobileData)
-    fd.append('im1', zaloID)
+    fd.append('im1', xxx)
     fd.append('portalid', portalid)
     fd.append('captcha', userCaptcha.value)
     fd.append('captchauuid', captchaUuid)
