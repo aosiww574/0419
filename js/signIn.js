@@ -290,7 +290,6 @@ function time10() {
 //     xhrPostFormData.open('POST', 'https://api.yabobkk.com/yabo-ecp/api/v1/register', true)
 //     xhrPostFormData.setRequestHeader('Content-type', 'multipart/form-data')
 //     xhrPostFormData.onload = function name(params) {
-
 //     }
 // }
 
@@ -304,10 +303,11 @@ function passwordHash(playerid, password) {
 
 // 設定測試用的數據
 var verification = document.querySelector('#Verification')
-// userName.value = "player1"
-userPassword.value = "Aa@666666"
-// userRePassword.value = "123456";
-userRePassword.value = "Aa@666666";
+userName.value = "player1"
+userPassword.value = "123456"
+// userPassword.value = "Aa@666666"
+userRePassword.value = "123456";
+// userRePassword.value = "Aa@666666";
 userPhone.value = "888888888"
 userCaptcha.value = "1234"
 verification.value = "000111"
@@ -340,8 +340,8 @@ function sendData() {
     var xxx = '???'
     // var agentid = ''
     var hash = passwordHash(userName.value, userPassword.value)
-    // var pin = "123456"
-    var pin = "333666"
+    var pin = "123456"
+    // var pin = "333666"
     // var zaloID = "123456"
     var portalid = "EC_MOBILE"
     var pinhash = passwordHash(userName.value, pin)
