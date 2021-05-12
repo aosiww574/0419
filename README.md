@@ -8,8 +8,9 @@ https://aosiww574.github.io/0419/signIn.html
 
 然後 hash 值和 pin 值可以做出跟範例一樣\
 playerid: player1\
-password: Zxcvb1234\
-hash should be: 30ebcf84b26362327f7bc93c342f1ce82994d1cd\
+pin: 123456\
+hash should be: f5ea1104ea74d5d96076b06e1f77b50a173f7692
+
 
 要測試的話，請按註冊，就可以看到各種console.log\
 一定要先按過一次，一開始網頁重新更新時 Fingerprint 還沒抓完資料，console.log 出來一定是 undefined
