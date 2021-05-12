@@ -9,39 +9,19 @@
     <link rel="stylesheet" href="./css/signIn.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="./js/jquery-3.6.0.slim.min.js"></script>
-    <!-- <script type="module" src="./node_modules/crypto-js/aes.js"></script>
-    <script type="module" src="./node_modules/crypto-js/core.js"></script>
-    <script type="module" src="./node_modules/crypto-js/hmac-sha1.js"></script> -->
     <script src="./js/crypto-js.min.js"></script>
-    <!-- <script async src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
-    onload="initFingerprintJS()" onerror="console.error('Failed to load the script')"></script> -->
 
 </head>
 
 <body>
     <div class="top"><img src="./image/BG1_top.png" alt="上方圖片"></div>
     <div class="all">
-        <!-- <img src="./image/JAN21-05_1564x3128-3-01.jpg" alt="圖片"> -->
-        <!-- <img src="./image/BG1.jpg" alt="圖片"> -->
+
 
         <div class="container">
-            <!-- <div class="logo">
-                <img src="https://fakeimg.pl/150x100/">
-            </div> -->
-
-            <!-- <div class="partner">
-            <img src="https://fakeimg.pl/50/">
-            <img src="https://fakeimg.pl/50/">
-            <img src="https://fakeimg.pl/50/">
-            <img src="https://fakeimg.pl/50/">
-            <img src="https://fakeimg.pl/50/">
-        </div> -->
 
             <div class="registered">
-                <!-- action:要傳去的網址 -->
-                <!-- <form action="/action_page.php" onsubmit="return validateForm();"> -->
-                <!-- <form onsubmit="return validateForm();" id="form"> -->
-                <!-- <form onsubmit="return sendData();" id="form"> -->
+
                 <form id="form">
                     <div class="input-group">
                         <label for="userName">Player ID</label>
@@ -92,29 +72,12 @@
                     <div class="agree">
                         <input type="checkbox" id="agree" name="agree">
                         <label for="agree">我已閱讀並同意相關條款和隱私政策</label>
-                        <!-- <input type="checkbox">我已閱讀並同意<a href="#">相關條款和隱私政策</a>
-                    <input type="submit" value="註冊"> -->
                     </div>
 
                     <button class="signup">註冊</button>
-                    <!-- <img src="./2x/sharp_person_black_24dp.png" class="userImg" alt="userImg"> -->
-                    <!-- <img src="./1x/sharp_person_black_24dp.png" class="userImg" alt="userImg"> -->
+
                 </form>
             </div>
-
-            <!-- <div class="signin">
-            <p>已有帳號?<a href="#">請登入</a></p>
-            <a href="#">先去逛逛</a>
-        </div>
-        <div class="connection">
-            <a href="#">聯繫客服</a>
-        </div> -->
-
-            <!-- <div class="input-group">
-                <label for="line">LINE ID</label> -->
-            <!-- line 帳號的規則 -->
-            <!-- <input type="text" id="line" name="line" placeholder="手機" required>
-            </div> -->
 
         </div>
     </div>
@@ -122,8 +85,7 @@
     <div class="bottom">
         <img src="./image/BG1_down.png" alt="下方圖片">
     </div>
-
-
+    <script src="./js/fp.min.js"></script>
     <script>
         var Fingerprint;
         // Fingerprint
@@ -139,14 +101,16 @@
                     const visitorId = result.visitorId
                     console.log(visitorId)
                     Fingerprint = visitorId
+                    return visitorId
+                    // console.log('regfingerprint is ' + typeof (Fingerprint));
                 })
                 .catch(error => console.error(error))
         }
+        Fingerprint = initFingerprintJS()
+        console.log(Fingerprint);
     </script>
+    <!-- https://github.com/fingerprintjs/fingerprintjs -->
     <script type="module" src="./js/signIn.js"></script>
-    <!-- <script async src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
-        onload="initFingerprintJS()" onerror="console.error('Failed to load the script')"></script> -->
-    <script async src="./js/fp.min.js" onload="initFingerprintJS()" onerror="console.error('Failed to load the script')"></script>
 </body>
 
 </html>
