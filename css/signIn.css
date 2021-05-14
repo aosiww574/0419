@@ -3,8 +3,8 @@
   padding: 0;
   list-style: none;
   font-size: 16px;
-  color: #fff;
   color: gray;
+  color: #fff;
 }
 .all {
   max-width: 750px;
@@ -44,19 +44,26 @@
 .container .registered {
   width: 80%;
   margin: auto;
+  background-color: #aaa;
+  border-radius: 40px;
 }
 .container .registered .input-group {
-  width: 100%;
+  width: 90%;
+  margin: auto;
   padding: 3px;
 }
 .container .registered .input-group label {
   width: 100%;
-  line-height: 38px;
+  line-height: 32px;
+  color: white;
+  margin-left: 8px;
 }
 .container .registered .input-group .tip {
   font-size: 14px;
+  margin-left: 8px;
+  margin-top: 4px;
 }
-.container .registered input:not([type="checkbox"]) {
+.container .registered input:not([type='checkbox']) {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -65,12 +72,14 @@
   padding: 3px 8px;
   font-weight: bold;
   font-size: 15px;
+  border-radius: 40px;
+  background-color: #333;
 }
-.container .registered [type="checkbox"] {
+.container .registered [type='checkbox'] {
   width: auto;
   background-color: #aaa;
 }
-.container .registered [type="submit"] {
+.container .registered [type='submit'] {
   padding-left: 0px !important;
 }
 .container .registered a {
@@ -97,6 +106,7 @@
 .container .registered .relative #captcha-img {
   position: absolute;
   right: 0;
+  top: 0;
 }
 .container .registered .disabled {
   opacity: 0.4;
@@ -105,6 +115,11 @@
 .container .registered .afterSendMessage {
   display: inline-block;
   color: red;
+}
+.container .registered .agree {
+  width: 90%;
+  margin: auto;
+  padding: 3px;
 }
 .signin {
   width: 100%;
@@ -127,7 +142,7 @@
 .signin:before {
   clear: both;
   display: table;
-  content: "";
+  content: '';
 }
 .connection {
   width: 80%;
